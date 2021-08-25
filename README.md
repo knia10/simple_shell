@@ -1,4 +1,5 @@
 # simple_shell
+![Alt text](https://lucid.app/lucidchart/69235a26-657f-459a-a0e6-a8c6bea69940/edit?beaconFlowId=DD59967668B84878&page=0_0# "Flowchart Simple Shell")
 ## _Description_
 
 In this project we try to replicate a command-line interpreter or shell that provides a command line. Which can operate both an interactive and a non-interactive mode. 
