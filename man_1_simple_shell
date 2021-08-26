@@ -1,0 +1,148 @@
+.TH Man  1
+
+.SH NAME
+
+man \- Simple shell, the simple command language interpreter
+
+.SH SINOPSIS
+
+.br 
+#include <stdlib.h> 
+.br 
+#include <stdio.h>
+.br 
+#include <string.h>
+.br
+#include <unistd.h>
+.br
+#include <sys/types.h>
+.br
+#include <sys/stat.h>
+.br
+#include <sys/wait.h>
+.br
+#include <wait.h>
+.br
+#include <fcntl.h>
+.br
+#include <dirent.h>
+.br
+#include <signal.h>
+
+.br
+int f_prompt(char **env)
+.br
+void ctrl_C(int n)
+.br
+size_t _getline(char **str)
+.br
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+.br
+int t_strlen(char *str, int pos, char delm)
+.br
+char *forget_space(char *str)
+.br
+char **_string_tok(char *str, char *delm)
+.br
+char **c_string_tok(char *str, char *delm)
+.br
+char *_strcat(char *dest, char *src)
+.br
+char *_strdup(char *str)
+.br
+char *_strcpy(char *dest, char *src)
+.br
+int _strcmp(char *s1, char *s2)
+.br
+int built_in(char **token, list_t *env, int num, char **lineptr)
+.br
+void non_interactive_mode(list_t *env)
+.br
+char *_which(char *str, list_t *env)
+.br
+int f_exit(char **s, list_t *env, int num, char **lineptr)
+.br
+int _execute(char *argv[], list_t *env, int num)
+.br
+void free_pptr(char **str)
+.br
+void free_linked_list(list_t *list)
+.br
+int print_env(char **str, list_t *env)
+.br
+char *get_env(char *str, list_t *env)
+.br
+list_t *linked_list_env_var(char **env)
+.br
+list_t *new_node(list_t **head, char *str)
+.br
+size_t print_list(list_t *h)
+.br
+int find_env(list_t *env, char *str)
+.br
+void not_found(char *str, int num, list_t *env)
+.br
+void illegal_number(char *str, int c_n, list_t *env)
+.br
+char *int_to_str(int num)
+
+.SH DESCRIPTION
+
+	The shell utility is a command language interpreter that shall
+	execute commands read from a command line string, the standard
+	input, or a specified file. The application shall ensure that the
+	commands to be executed are expressed in the language described.
+
+.SH STDIN
+
+	When the shell is using standard input and it invokes a command
+	that also uses standard input, the shell shall ensure that the
+	standard input file pointer points directly after the command it
+	has read when the command begins execution. It shall not read
+	ahead in such a manner that any characters intended to be read by
+	the invoked command are consumed by the shell (whether
+	interpreted by the shell or not) or that characters that are not
+	read by the invoked command are not seen by the shell. When the
+	command expecting to read standard input is started
+	asynchronously by an interactive shell, it is unspecified whether
+	characters are read by the command or interpreted by the shell.
+
+.SH ENVIRONMENT VARIABLES
+
+.B ENV
+	This variable, when and only when an interactive shell
+	is invoked, shall be subjected to parameter expansion
+	by the shell,and the resulting value shall be used as
+	a pathname of a file containing shell commands to execute
+	in the current environment.  The file need not be executable.
+	If the expanded value of ENV is not an absolute
+	pathname, the results are unspecified.  ENV shall be
+	ignored if the real and effective user IDs or real and
+	effective group IDs of the process are different.
+
+.B PATH
+	used to effect command interpretation.
+
+.B PWD
+	This variable shall represent an absolute pathname of
+	the current working directory. Assignments to this
+	variable may be ignored.
+
+.SH STDERR
+
+	 Except as otherwise stated (by the descriptions of any invoked
+	utilities or in interactive mode), standard error shall be used
+	only for diagnostic messages.
+
+.SH EXTENDED DESCRIPTION
+
+.B end-of-file 
+	Interpreted as the end of input in shell.  This
+	interpretation shall occur only at the beginning of an
+	input line. If end-of-file is entered other than at the
+	beginning of the line, the results are unspecified.
+
+.I <newline>
+	Execute the current command line. If the current
+	command line is not empty, this line shall be entered
+	into the command history.
