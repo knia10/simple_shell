@@ -12,7 +12,7 @@ In this project we try to replicate a command-line interpreter or shell that pro
  
 ## _Brief synopsis_
 
-All files in this repository are designed to compile with GNU compiler in the Linux environment from  _Ubuntu 20.04 LTS_. When compiled, the executable program replicates a "shell" or command line interpreter, which is a user interface used for access to an operating system's services. This shell has a set of custom built-in commands, and also integrates with other commands located in the system's PATH. Output and functionality from commands is designed to replicate output from the shell and other commands. 
+All files in this repository are designed to compile with GNU compiler in the Linux environment from  _Ubuntu 20.04 LTS_. When compiled, the executable program replicates a "shell" or command line interpreter, which is a user interface used for access to an operating system's services. This shell has a set of custom built-in commands, and also integrates with other commands located in the system's PATH. Output and functionality from commands is designed to replicate output from the shell and other commands. You can find more information about the subject following the next link: https://www.linkedin.com/pulse/what-happens-when-u-type-ls-l-c-shell-eylen-manuela-s%25C3%25A1nchez-chica
 
 ## _Usage_
 
