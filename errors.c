@@ -17,7 +17,7 @@ void not_found(char *str, int c_n, list_t *env)
 	write(STDOUT_FILENO, shell, count);
 	free(shell);
 	write(STDOUT_FILENO, ": ", 2);
-	num = int_to_str(c_n); /*convertir el númerode la línea de comandos en str*/
+	num = int_to_str(c_n); /* convertir el núm de la línea de comandos en str */
 	count = 0;
 	while (num[count] != '\0')
 		count++;
