@@ -50,7 +50,7 @@ void ctrl_D(int i, char *lineptr, list_t *env)
 	{
 		free(lineptr);
 		free_linked_list(env);
-		if (isatty(STDIN_FILENO)) /* comprobar si se refiere a la teminal */
+		if (isatty(STDIN_FILENO))		   /* comprobar si se refiere a la teminal */
 			write(STDOUT_FILENO, "\n", 1); /* exit con nueva linea */
 		exit(0);
 	}
@@ -78,8 +78,8 @@ int f_prompt(char **en)
 
 		signal(SIGINT, ctrl_C); /* SIGINT: nombre de la señal (No. 2) */
 		lineptr = NULL;
-		i = 0;							  /* resetea c/vez que corre el loop */
-		i = _getline(&lineptr); /* lee comand en stdin */
+		i = 0;					 /* resetea c/vez que corre el loop */
+		i = _getline(&lineptr);	 /* lee comand en stdin */
 		ctrl_D(i, lineptr, env); /* exits shell si ctrl-D */
 		/* n_command almacena el string apuntado por lineptr */
 		n_command = lineptr;

@@ -31,7 +31,7 @@ void non_interactive_mode(list_t *env)
 		exit(0);
 	}
 	n_command = lineptr;
-	lineptr = c_forget_space(lineptr); /* no tener en cuenta fin de carrera */
+	lineptr = c_forget_space(lineptr);   /* no tener en cuenta fin de carrera */
 	n_line = _string_tok(lineptr, "\n"); /* tokeniza el string, delm \n*/
 	if (n_command != NULL)
 		free(n_command);
@@ -39,7 +39,7 @@ void non_interactive_mode(list_t *env)
 	while (n_line[n] != NULL)
 	{
 		command_line_nu++;
-		token = NULL; /* tokenize cada comand,en array de comands */
+		token = NULL;                        /* token c/ comand,en array de comnds */
 		token = _string_tok(n_line[n], " "); /*tokeniza c/vez encuentre " "*/
 		exit_stat = built_in(token, env, command_line_nu, n_line);
 		if (exit_stat)

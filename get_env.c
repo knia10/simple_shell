@@ -54,6 +54,6 @@ char *get_env(char *str, list_t *env)
 
 	while (str[s] != '\0') /* Encuentra long(bytes) var entorno */
 		s++;
-	s++;				/*cuenta 1 mas por signo "=" */
+	s++;                            /*cuenta 1 mas por signo "=" */
 	return (c_strdup(env->var, s)); /* copia de la env var solicitada */
 }
