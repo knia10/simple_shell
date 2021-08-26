@@ -14,7 +14,9 @@ int built_in(char **token, list_t *env, int num, char **lineptr)
 
 	/* si se lee "exit", libera los tokens de cmd y sale */
 	if (_strcmp(token[0], "exit") == 0)
+	{
 		i = f_exit(token, env, num, lineptr);
+	}
 	/* si se lee "env", imprime env var, libera cmd tokens */
 	else if (_strcmp(token[0], "env") == 0)
 	{
@@ -48,7 +50,7 @@ void ctrl_D(int i, char *lineptr, list_t *env)
 	{
 		free(lineptr);
 		free_linked_list(env);
-		if (isatty(STDIN_FILENO))		   /* comprobar si se refiere a la teminal */
+		if (isatty(STDIN_FILENO)) /* comprobar si se refiere a la teminal */
 			write(STDOUT_FILENO, "\n", 1); /* exit con nueva linea */
 		exit(0);
 	}
@@ -73,11 +75,12 @@ int f_prompt(char **en)
 			write(STDOUT_FILENO, "$ ", 2);
 		else
 			non_interactive_mode(env); /* si arg, modo no interactivo */
-		signal(SIGINT, ctrl_C);		   /* SIGINT: nombre de la señal (No. 2) */
+
+		signal(SIGINT, ctrl_C); /* SIGINT: nombre de la señal (No. 2) */
 		lineptr = NULL;
 		i = 0;							  /* resetea c/vez que corre el loop */
-		i = getline(&lineptr, &n, stdin); /* lee comand en stdin */
-		ctrl_D(i, lineptr, env);		  /* exits shell si ctrl-D */
+		i = _getline(&lineptr); /* lee comand en stdin */
+		ctrl_D(i, lineptr, env); /* exits shell si ctrl-D */
 		/* n_command almacena el string apuntado por lineptr */
 		n_command = lineptr;
 		lineptr = forget_space(lineptr);
@@ -85,7 +88,7 @@ int f_prompt(char **en)
 		while (lineptr[n] != '\n') /* hace recorrido del stream */
 			n++;				   /* hasta que encuentre el \n */
 		lineptr[n] = '\0';		   /*cuando llega al \n lo cambia por \0 */
-		if (lineptr[0] == '\0')	   /* Imprime prompt si oprime solo enter */
+		if (lineptr[0] == '\0') /* Imprime prompt si oprime solo enter */
 		{
 			free(n_command);
 			continue;
@@ -98,6 +101,6 @@ int f_prompt(char **en)
 		if (exit_stat)
 			continue;
 		exit_stat = _execute(token, env, command_line_nu);
-	} while (1);
+	} while (1); /* keep on repeating till user exits shell */
 	return (exit_stat);
 }
