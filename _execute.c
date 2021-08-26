@@ -31,6 +31,9 @@ int _execute(char **s, list_t *env, int num)
 		p = s[0];
 		t = 1;
 	}
+	/* si no... */
+	else
+		p = _which(s[0], env);
 
 	if (access(p, X_OK) != 0) /* si no es un ejecutable, libera */
 	{
