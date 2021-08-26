@@ -13,9 +13,9 @@ int find_env(list_t *env, char *str)
 	while (env != NULL)
 	{
 		j = 0;
-		while ((env->var)[j] == str[j]) /* Encuentra env var req */
+		while ((env->var)[j] == str[j])
 			j++;
-		if (str[j] == '\0') /* si coincide total/, break, return idx */
+		if (str[j] == '\0')
 			break;
 		env = env->next;
 		index++;

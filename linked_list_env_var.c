@@ -28,6 +28,6 @@ list_t *linked_list_env_var(char **env)
 int print_env(char **str, list_t *env)
 {
 	free_pptr(str);
-	print_list(env); /* imprime las env vars */
+	print_list(env);
 	return (0);
 }

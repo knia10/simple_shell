@@ -8,12 +8,11 @@
  */
 char *_strcat(char *dest, char *src)
 {
-	int l_dest = 0; /* length dest */
-	int l_src = 0;	/* length src */
-	int len = 0;	/* total len = desr + src */
+	int l_dest = 0;
+	int l_src = 0;
+	int len = 0;
 	int j = 0;
 
-	/* find total length of both strings to _realloc */
 	while (dest[l_dest] != '\0')
 	{
 		l_dest++;
@@ -25,12 +24,11 @@ char *_strcat(char *dest, char *src)
 		len++;
 	}
 
-	/* _realloc because dest was malloced outside of function */
 	dest = _realloc(dest, l_dest, sizeof(char) * len + 1);
 
 	while (src[j] != '\0')
 	{
-		dest[l_dest] = src[j]; /* agrega c/char a dest */
+		dest[l_dest] = src[j];
 		l_dest++;
 		j++;
 	}

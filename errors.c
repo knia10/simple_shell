@@ -11,13 +11,13 @@ void not_found(char *str, int c_n, list_t *env)
 	int count = 0;
 	char *shell, *num;
 
-	shell = get_env("_", env); /* obtener el nombre del shell para escribir */
+	shell = get_env("_", env);
 	while (shell[count] != '\0')
 		count++;
 	write(STDOUT_FILENO, shell, count);
 	free(shell);
 	write(STDOUT_FILENO, ": ", 2);
-	num = int_to_str(c_n); /* convertir el núm de la línea de comandos en str */
+	num = int_to_str(c_n);
 	count = 0;
 	while (num[count] != '\0')
 		count++;

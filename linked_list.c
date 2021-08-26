@@ -42,11 +42,11 @@ size_t print_list(list_t *h)
  */
 list_t *new_node(list_t **head, char *str)
 {
-	list_t *new; /* Apunta al nuevo nodo */
-	list_t *p;   /* hace la ruta a través de los nodos */
+	list_t *new;
+	list_t *p;
 
 	if (head == NULL || str == NULL)
-		return (NULL); /* comprueba si la dirección de head es nul */
+		return (NULL);
 	new = malloc(sizeof(list_t));
 	if (new == NULL)
 		return (NULL);

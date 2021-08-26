@@ -25,34 +25,33 @@ int _execute(char **s, list_t *env, int num)
 	int status = 0, t = 0;
 	pid_t pid;
 
-	/* comprueba el archivo por el nombre de ruta apuntado por PATH */
-	if (access(s[0], F_OK) == 0) /* F_OK: comprueba existe el file */
+	if (access(s[0], F_OK) == 0)
 	{
 		p = s[0];
 		t = 1;
 	}
-	/* si no... */
+
 	else
 		p = _which(s[0], env);
 
-	if (access(p, X_OK) != 0) /* si no es un ejecutable, libera */
+	if (access(p, X_OK) != 0)
 	{
 		not_found(s[0], num, env);
 		free_pptr(s);
-		return (127); /* el comando no se encuentra en el PATH */
+		return (127);
 	}
-	else /* si si, bifurca proceso y ejecuta el comando */
+	else
 	{
 		pid = fork();
-		if (pid == 0) /* si el proceso es proc hijo, ejecuta */
+		if (pid == 0)
 		{
 			if (execve(p, s, NULL) == -1)
 			{
-				not_found(s[0], num, env); /* special err msg */
+				not_found(s[0], num, env);
 				c_exit(s, env);
 			}
 		}
-		else /* si el padre, espera al hijo y luego libera todo */
+		else
 		{
 			wait(&status);
 			free_pptr(s);

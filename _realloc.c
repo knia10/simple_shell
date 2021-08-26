@@ -13,16 +13,16 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	void *p;
 	unsigned int i;
 
-	if (new_size == 0 && ptr != NULL) /* NO necesita reasignar memoria */
+	if (new_size == 0 && ptr != NULL)
 	{
 		free(ptr);
 		return (NULL);
 	}
 
-	if (new_size == old_size) /* retorna ptr si new = old */
+	if (new_size == old_size)
 		return (ptr);
 
-	if (ptr == NULL) /* nuevo tamaño si ptr es originalmente null */
+	if (ptr == NULL)
 	{
 		p = malloc(new_size);
 		if (p == NULL)
@@ -31,11 +31,10 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 			return (p);
 	}
 
-	p = malloc(new_size); /* comprobar error */
+	p = malloc(new_size);
 	if (p == NULL)
 		return (NULL);
 
-	/* rellenar los valores -> tamaño old o new */
 	for (i = 0; i < old_size && i < new_size; i++)
 		*((char *)p + i) = *((char *)ptr + i);
 	free(ptr);

@@ -11,14 +11,14 @@ char *_strdup(char *str)
 	char *duplicate_str;
 	int i, len = 0;
 
-	if (str == NULL) /* validate str input */
+	if (str == NULL)
 		return (NULL);
 
 	while (*(str + len))
 		len++;
-	len++; /* add null terminator to length */
+	len++;
 
-	duplicate_str = malloc(sizeof(char) * len); /* allocate memory */
+	duplicate_str = malloc(sizeof(char) * len);
 	if (duplicate_str == NULL)
 		return (NULL);
 

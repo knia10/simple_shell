@@ -11,14 +11,13 @@ char *c_strdup(char *str, int s)
 	char *copied_str;
 	int i, len = 0;
 
-	if (str == NULL) /* valida el input str */
+	if (str == NULL)
 		return (NULL);
 
-	while (*(str + len)) /*calc long + null para malloc*/
+	while (*(str + len))
 		len++;
 	len++;
 
-	/* Reserva memoria. Excluye titulo de var entorno (PATH) */
 	copied_str = malloc(sizeof(char) * (len - s));
 	if (copied_str == NULL)
 		return (NULL);
@@ -45,15 +44,15 @@ char *get_env(char *str, list_t *env)
 	while (env != NULL)
 	{
 		j = 0;
-		while ((env->var)[j] == str[j]) /*Hace match con var requerida*/
+		while ((env->var)[j] == str[j])
 			j++;
 		if (str[j] == '\0' && (env->var)[j] == '=')
 			break;
 		env = env->next;
 	}
 
-	while (str[s] != '\0') /* Encuentra long(bytes) var entorno */
+	while (str[s] != '\0')
 		s++;
-	s++;                            /*cuenta 1 mas por signo "=" */
-	return (c_strdup(env->var, s)); /* copia de la env var solicitada */
+		s++;
+	return (c_strdup(env->var, s));
 }

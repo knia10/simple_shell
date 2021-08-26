@@ -12,9 +12,9 @@ int c_atoi(char *str)
 
 	while (str[i] != '\0')
 	{
-		if (str[i] >= 48 && str[i] <= 57) /* calculate num */
+		if (str[i] >= 48 && str[i] <= 57)
 			num = num * 10 + (str[i] - 48);
-		if (str[i] > 57 || str[i] < 48) /* account for non-numbers */
+		if (str[i] > 57 || str[i] < 48)
 			return (-1);
 		i++;
 	}
@@ -38,11 +38,11 @@ int f_exit(char **str, list_t *env, int num, char **lineptr)
 
 	if (value == -1)
 	{
-		illegal_number(str[1], num, env); /* imprime mensaje de error */
+		illegal_number(str[1], num, env);
 		free_pptr(str);
 		return (2);
 	}
-	free_pptr(str); /* free user input before exiting program */
+	free_pptr(str);
 	free_linked_list(env);
 	if (lineptr != NULL)
 		free_pptr(lineptr);
