@@ -38,7 +38,7 @@ char *forget_space(char *str);
 char **_string_tok(char *str, char *delm);
 char **c_string_tok(char *str, char *delm);
 char *_strcat(char *dest, char *src);
-char *_strdup(char *str
+char *_strdup(char *str);
 char *_strcpy(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 int built_in(char **token, list_t *env, int num, char **lineptr);

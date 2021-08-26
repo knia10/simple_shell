@@ -62,7 +62,7 @@ char *ignore_delm(char *str, char delm)
 /**
  * _string_tok - splits a str into substrings separated by delm
  * @str: The string brought from stdin
- * @delm: special separator (" ",:);
+ * @delm: special separator (" ");
  * Return: an array of toks ("ls", "-l", "/tmp").
  */
 char **_string_tok(char *str, char *delm)

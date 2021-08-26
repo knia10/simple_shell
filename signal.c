@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * ctrl_C - shell should not quit when the user inputs ^C
+ * ctrl_C - Prints ^C
  * @n: takes in int from signal
  */
 void ctrl_C(int n __attribute__((unused)))
