@@ -61,9 +61,12 @@ hsh main.c shell.c test_ls_2
 hsh main.c shell.c test_ls_2
 $
 
+### Testing
+There is a repository for the test suite at https://github.com/Ele4327/Test-Suite.git Follow the instructions there, and you'll want the shell target to be /bin/sh (the default location for sh).
+
 ### Authors ✒️
 
 * Estefania Ruiz Acevedo - [knia10](https://github.com/knia10)
-* Eylen Sanchez - [EylenS](https://github.com/EylenS)
+* Eylen Manuela Sánchez - [EylenS](https://github.com/EylenS)
 * Mayi Cadavid - [mayii527](https://github.com/mayii527)
 
